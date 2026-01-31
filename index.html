@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle 6 Systems | Strategic Technology Consulting</title>
+    <meta name="description" content="Circle 6 Systems provides cyber security, system design, system integration, and custom development consulting for government organizations and enterprises.">
+    <meta property="og:title" content="Circle 6 Systems | Strategic Technology Consulting">
+    <meta property="og:description" content="Securing and modernizing critical systems for government and enterprise organizations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://circle6systems.com">
+    <link rel="canonical" href="https://circle6systems.com">
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --navy-mid: #1d3461;
+            --slate: #8892b0;
+            --slate-light: #a8b2d1;
+            --white: #e6f1ff;
+            --accent: #64ffda;
+            --accent-dim: rgba(100, 255, 218, 0.1);
+            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        body {
+            font-family: var(--font);
+            background: var(--navy);
+            color: var(--slate-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.08);
+            z-index: 1000;
+            transition: box-shadow 0.3s;
+        }
+
+        nav.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a {
+            color: var(--slate-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--slate-light);
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ===== Sections ===== */
+        section { padding: 6rem 2rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-heading {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--slate);
+            max-width: 640px;
+            line-height: 1.8;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 20%, rgba(100, 255, 218, 0.04), transparent),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(100, 255, 218, 0.03), transparent);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero .section-label { margin-bottom: 1.5rem; }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--slate);
+            max-width: 560px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border-radius: 4px;
+            transition: all 0.25s;
+        }
+
+        .btn:hover {
+            background: var(--accent-dim);
+            transform: translateY(-1px);
+        }
+
+        .btn-filled {
+            background: var(--accent);
+            color: var(--navy);
+        }
+
+        .btn-filled:hover {
+            background: #7bffe5;
+            transform: translateY(-1px);
+        }
+
+        /* ===== About ===== */
+        .about { background: var(--navy-light); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.25rem;
+            color: var(--slate-light);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--navy);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-card .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .stat-card h3 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 0.8rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+
+        /* ===== Services ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(100, 255, 218, 0.06);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: rgba(100, 255, 218, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            font-size: 0.85rem;
+            color: var(--slate-light);
+            padding: 0.3rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .service-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        /* ===== Industries ===== */
+        .industries { background: var(--navy-light); }
+
+        .industries-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .sector-group { margin-bottom: 2rem; }
+
+        .sector-group h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sector-group h3 .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .sector-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .sector-list li {
+            background: var(--navy);
+            border: 1px solid rgba(100, 255, 218, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--slate-light);
+        }
+
+        .industries-text p {
+            color: var(--slate-light);
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        /* ===== Approach ===== */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .approach-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(100, 255, 218, 0.06);
+            border-radius: 8px;
+            background: var(--navy-light);
+        }
+
+        .approach-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
+        .approach-card h3 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .approach-card p {
+            font-size: 0.85rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* ===== Contact ===== */
+        .contact { background: var(--navy-light); }
+
+        .contact-inner {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .contact-inner p {
+            margin-bottom: 2rem;
+            color: var(--slate);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 1.25rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            transition: all 0.25s;
+        }
+
+        .contact-email:hover {
+            background: var(--accent-dim);
+            transform: translateY(-1px);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.06);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--slate);
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* ===== Divider ===== */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.3;
+            margin: 1.5rem 0;
+        }
+
+        /* ===== Animations ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 968px) {
+            .about-grid,
+            .industries-content { grid-template-columns: 1fr; gap: 2rem; }
+
+            .services-grid { grid-template-columns: 1fr; }
+
+            .approach-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.5rem; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 25, 47, 0.97);
+                flex-direction: column;
+                padding: 1.5rem 2rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid rgba(100, 255, 218, 0.08);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .hamburger { display: flex; }
+
+            .approach-grid { grid-template-columns: 1fr; }
+
+            .about-stats { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .about-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">Circle <span>6</span> Systems</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <p class="section-label">Strategic Technology Consulting</p>
+            <h1>Securing and Modernizing<br><em>Critical Systems</em></h1>
+            <p>Circle 6 Systems partners with government agencies and enterprise organizations to strengthen cyber security posture, architect resilient infrastructure, and deliver integrated technology solutions that serve the public interest.</p>
+            <a href="#contact" class="btn btn-filled">Start a Conversation</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p class="section-label">Who We Are</p>
+                    <h2 class="section-heading">Mission-Driven Technology Consulting</h2>
+                    <div class="divider"></div>
+                    <p>Circle 6 Systems is a technology consulting firm built on the principle that the organizations responsible for serving the public deserve the same caliber of technical expertise available to the private sector.</p>
+                    <p>We work alongside state, local, tribal, and territorial government agencies as well as mid-to-large enterprises to solve complex technology challenges. Whether it is hardening an organization against evolving cyber threats, designing systems that scale with growing demands, or integrating disparate platforms into a cohesive operation, we bring the strategic depth and hands-on capability to deliver results.</p>
+                    <p>Our consultants operate as an extension of your team. We invest the time to understand your mission, your constraints, and your operating environment before recommending a path forward. Every engagement is structured to leave your organization stronger and more self-sufficient than when we arrived.</p>
+                </div>
+                <div class="about-stats fade-in">
+                    <div class="stat-card">
+                        <span class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </span>
+                        <h3>Security First</h3>
+                        <p>Every recommendation considers the security implications for your organization and stakeholders</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </span>
+                        <h3>Vendor Agnostic</h3>
+                        <p>Recommendations driven by your needs, not by vendor partnerships or reseller agreements</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </span>
+                        <h3>Knowledge Transfer</h3>
+                        <p>We build your team's capacity so improvements endure well beyond our engagement</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </span>
+                        <h3>Public Sector Fluency</h3>
+                        <p>Deep understanding of government procurement, compliance frameworks, and operational realities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <p class="section-label fade-in">What We Do</p>
+            <h2 class="section-heading fade-in">Consulting Services</h2>
+            <p class="section-sub fade-in">We deliver focused expertise across four core disciplines, each grounded in practical experience with government and enterprise environments.</p>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Cyber Security</h3>
+                    <p>Protecting critical infrastructure and sensitive data demands more than compliance checklists. We help organizations build and sustain a security posture that addresses real-world threats while meeting regulatory obligations.</p>
+                    <ul>
+                        <li>Security architecture assessment and design</li>
+                        <li>Risk analysis and vulnerability management</li>
+                        <li>Incident response planning and readiness</li>
+                        <li>Regulatory compliance and audit preparation</li>
+                        <li>Security awareness program development</li>
+                        <li>Continuity of operations planning</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 7h5"/><path d="M17 17h5"/></svg>
+                    </div>
+                    <h3>System Design</h3>
+                    <p>Sound architecture is the foundation of every reliable system. We work with stakeholders to translate operational requirements into technical designs that are practical to implement, maintain, and scale.</p>
+                    <ul>
+                        <li>Enterprise architecture planning</li>
+                        <li>Requirements analysis and documentation</li>
+                        <li>Infrastructure and network design</li>
+                        <li>Scalability and performance planning</li>
+                        <li>Disaster recovery architecture</li>
+                        <li>Technology roadmap development</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/><circle cx="18" cy="6" r="3"/><path d="M18 3v6"/></svg>
+                    </div>
+                    <h3>System Integration</h3>
+                    <p>Most organizations operate a mix of legacy platforms, cloud services, and specialized applications that were never designed to work together. We bridge those gaps to create unified, interoperable environments.</p>
+                    <ul>
+                        <li>Legacy system modernization strategies</li>
+                        <li>Cross-platform data integration</li>
+                        <li>API design and middleware implementation</li>
+                        <li>Cloud and hybrid environment integration</li>
+                        <li>Data migration and transformation</li>
+                        <li>Interagency and partner system connectivity</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+                    </div>
+                    <h3>Customized System Development</h3>
+                    <p>When off-the-shelf products cannot meet your operational requirements, we design and build purpose-driven solutions tailored to how your organization actually works.</p>
+                    <ul>
+                        <li>Custom application design and development</li>
+                        <li>Workflow and process automation</li>
+                        <li>Reporting and analytics platforms</li>
+                        <li>Citizen and constituent-facing portals</li>
+                        <li>Internal tooling and operational dashboards</li>
+                        <li>Ongoing maintenance and support planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="industries" id="industries">
+        <div class="container">
+            <p class="section-label fade-in">Who We Serve</p>
+            <h2 class="section-heading fade-in">Built for Organizations That Serve the Public</h2>
+
+            <div class="industries-content">
+                <div class="fade-in">
+                    <div class="sector-group">
+                        <h3><span class="dot"></span>Government</h3>
+                        <ul class="sector-list">
+                            <li>State Agencies</li>
+                            <li>County &amp; Municipal Government</li>
+                            <li>Tribal Nations &amp; Organizations</li>
+                            <li>Territorial Governments</li>
+                            <li>Special Purpose Districts</li>
+                            <li>Public Safety &amp; Emergency Services</li>
+                            <li>Public Health Departments</li>
+                            <li>Transportation Authorities</li>
+                        </ul>
+                    </div>
+
+                    <div class="sector-group">
+                        <h3><span class="dot"></span>Enterprise</h3>
+                        <ul class="sector-list">
+                            <li>Mid-Market Organizations</li>
+                            <li>Large Enterprises</li>
+                            <li>Regulated Industries</li>
+                            <li>Critical Infrastructure Operators</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industries-text fade-in">
+                    <p>Government organizations and public-serving enterprises face technology challenges that commercial solutions rarely address out of the box. Budget cycles, procurement regulations, compliance mandates, accessibility requirements, and the obligation to serve every constituent create an operating context that demands specialized understanding.</p>
+                    <p>Circle 6 Systems was founded to work within these realities, not around them. We understand how to navigate intergovernmental coordination, multi-stakeholder approval processes, and the documentation requirements that accompany public-sector technology projects.</p>
+                    <p>For enterprise clients, we bring the same structured, methodical approach that government work demands. The result is thorough analysis, defensible recommendations, and implementations that are built to withstand scrutiny and stand the test of operational use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <p class="section-label fade-in">How We Work</p>
+            <h2 class="section-heading fade-in">Our Approach</h2>
+            <p class="section-sub fade-in">Every engagement follows a structured methodology designed to minimize risk and maximize the value delivered to your organization.</p>
+
+            <div class="approach-grid">
+                <div class="approach-card fade-in">
+                    <div class="approach-num">01</div>
+                    <h3>Discover</h3>
+                    <p>We begin by listening. Through stakeholder interviews, documentation review, and hands-on assessment, we develop a thorough understanding of your current environment, your goals, and the constraints you operate within.</p>
+                </div>
+                <div class="approach-card fade-in">
+                    <div class="approach-num">02</div>
+                    <h3>Design</h3>
+                    <p>With a clear picture of where you are and where you need to go, we develop a practical plan of action. Our recommendations are grounded in what is achievable given your resources, timeline, and organizational capacity.</p>
+                </div>
+                <div class="approach-card fade-in">
+                    <div class="approach-num">03</div>
+                    <h3>Deliver</h3>
+                    <p>We execute with discipline and transparency. Regular communication, milestone tracking, and collaborative problem-solving keep the engagement on course and ensure stakeholders are never caught off guard.</p>
+                </div>
+                <div class="approach-card fade-in">
+                    <div class="approach-num">04</div>
+                    <h3>Sustain</h3>
+                    <p>The work does not end at deployment. We provide thorough documentation, training, and transition support so your team can own and operate the solutions we build together with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-inner fade-in">
+                <p class="section-label">Get in Touch</p>
+                <h2 class="section-heading">Ready to Strengthen Your Systems?</h2>
+                <div class="divider" style="margin: 1.5rem auto;"></div>
+                <p>Whether you are facing an immediate security concern, planning a system modernization, or exploring how to better integrate your existing technology investments, we are ready to help. Reach out to start a conversation about what Circle 6 Systems can do for your organization.</p>
+                <a href="mailto:contact@circle6systems.com" class="contact-email">contact@circle6systems.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Circle 6 Systems. All rights reserved. &nbsp;|&nbsp; <a href="mailto:contact@circle6systems.com">contact@circle6systems.com</a></p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
