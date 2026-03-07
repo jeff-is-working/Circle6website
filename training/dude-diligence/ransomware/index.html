@@ -194,10 +194,13 @@
     .speech-bubble.right::after { left: auto; right: 30px; }
     .speech-bubble.right::before { left: auto; right: 31px; }
     .speech-bubble.no-tail::after, .speech-bubble.no-tail::before { display: none; }
-    .speech-bubble .speaker {
+    .speech-bubble .speaker, .thought-bubble .speaker {
       font-family: var(--font-comic); font-size: 0.8rem;
       color: var(--accent); letter-spacing: 0.05em;
       display: block; margin-bottom: 0.25rem;
+    }
+    .thought-bubble .speaker {
+      color: #7a6b5a;
     }
 
     /* THOUGHT BUBBLE */
@@ -993,6 +996,7 @@
     </div>
 
     <div class="thought-bubble">
+      <span class="speaker">DUKE (inner monologue)</span>
       Five days. They're in your network for five days before they pull the trigger. And nobody noticed. That's the part that keeps me up at night. Well, that and the coffee.
     </div>
 
@@ -1175,6 +1179,7 @@
     </div>
 
     <div class="thought-bubble" style="margin-top: 1rem;">
+      <span class="speaker">DUKE (inner monologue)</span>
       They encrypted the whole network in 4 hours. I've seen faster. The 2023 Akira crew did it in 2. Amateurs.
     </div>
 

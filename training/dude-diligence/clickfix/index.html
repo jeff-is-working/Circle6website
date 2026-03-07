@@ -286,6 +286,15 @@
       z-index: 1;
     }
 
+    .speech-bubble .speaker, .thought-bubble .speaker {
+      font-family: var(--font-comic); font-size: 0.8rem;
+      color: var(--accent); letter-spacing: 0.05em;
+      display: block; margin-bottom: 0.25rem;
+    }
+    .thought-bubble .speaker {
+      color: #7a6b5a;
+    }
+
     /* ===== Narrator Captions ===== */
     .narrator {
       background: var(--caption);
@@ -1309,6 +1318,7 @@
         <img src="../img/dude-portrait.png" alt="Duke Dillingham at his desk" class="char-img portrait rounded">
         <div style="flex:1; min-width:220px;">
           <div class="thought-bubble">
+            <span class="speaker">DUKE (inner monologue)</span>
             Another week, another chance for someone to click something they absolutely should not click. The circle of life continues.
           </div>
           <div style="margin-top:1.5rem;">
@@ -1331,6 +1341,7 @@
     <div class="panel-grid two-col">
       <div class="panel">
         <div class="thought-bubble">
+          <span class="speaker">DUKE (inner monologue)</span>
           I've survived 47 mandatory trainings. Forty-seven. I've watched every phishing video they've ever produced. I've passed every quiz with a score that would make a Scantron blush.
         </div>
         <div class="body-text" style="margin-top:2rem;">
@@ -1339,6 +1350,7 @@
       </div>
       <div class="panel">
         <div class="thought-bubble">
+          <span class="speaker">DUKE (inner monologue)</span>
           I can survive one more. Probably. Unless it's the one with the animated paperclip. That one almost broke me.
         </div>
         <div style="margin-top:2rem;">
@@ -1350,6 +1362,7 @@
     <!-- Panel 3: The coffee philosophy -->
     <div class="panel-full" style="text-align:center;">
       <div class="speech-bubble no-tail" style="display:inline-block; max-width:600px;">
+        <span class="speaker">DUDE</span>
         <span class="bold">Duke's First Law of Cybersecurity:</span><br>
         The threat landscape changes every day. But the user who clicks "Enable Macros" without reading? That person is eternal.
       </div>
@@ -1374,6 +1387,7 @@
         <img src="../img/origin-story.png" alt="Dude Diligence in contemplation" class="char-img portrait rounded" style="width:160px;">
         <div style="flex:1; min-width:250px;">
           <div class="speech-bubble" style="max-width:100%;">
+            <span class="speaker">DUDE (to reader)</span>
             <span class="bold">Oh, hey there.</span> Yeah, I'm talking to you. Through the screen. Don't worry, it's not a security breach. Probably.<br><br>
             Let me tell you about the latest thing the threat actors cooked up. It's called <span class="bold text-red">ClickFix</span>, and honestly? I'm almost impressed. Almost.
           </div>
@@ -1386,6 +1400,7 @@
       <div class="panel accent-bg">
         <div class="narrator">The Concept</div>
         <div class="speech-bubble no-tail" style="max-width:100%; margin-top:0.5rem;">
+          <span class="speaker">DUDE (to reader)</span>
           Someone decided that <span class="bold">"I am not a robot"</span> wasn't annoying enough. So they <span class="text-red bold">weaponized it</span>.<br><br>
           ClickFix attacks use fake CAPTCHAs, fake error messages, and fake "fix" dialogs to trick you into running malicious commands on your own machine. <span class="italic">You</span> become the attack vector. They basically social-engineered the social engineering.
         </div>
@@ -1423,6 +1438,7 @@
       </div>
       <div style="margin-top:1rem;">
         <div class="speech-bubble no-tail" style="display:inline-block; max-width:500px;">
+          <span class="speaker">DUDE</span>
           Look, I don't want to be alarmist. But when the guys who can't agree on literally anything else all independently decide to use the same attack... maybe pay attention to this one.
         </div>
       </div>
@@ -1465,6 +1481,7 @@
             </div>
           </div>
           <div class="speech-bubble no-tail" style="max-width:100%; margin-top:0.5rem;">
+            <span class="speaker">DUDE</span>
             <span class="italic">"Oh good, another CAPTCHA. How original. Really pushing the creative envelope here."</span>
           </div>
         </div>
@@ -1480,6 +1497,7 @@
             powershell -w hidden -e SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AC...
           </div>
           <div class="speech-bubble no-tail" style="max-width:100%; margin-top:0.5rem;">
+            <span class="speaker">DUDE</span>
             <span class="italic">"Base64 encoded PowerShell. Because just writing 'steal everything' in plain text would be too honest, I suppose."</span>
           </div>
         </div>
@@ -1503,6 +1521,7 @@
             </div>
           </div>
           <div class="speech-bubble no-tail" style="max-width:100%; margin-top:0.5rem;">
+            <span class="speaker">DUDE</span>
             <span class="italic">"And just like that, the user has willingly executed arbitrary code on their own machine. The attacker didn't need a zero-day. Didn't need admin rights. Just needed someone who follows instructions."</span>
           </div>
         </div>
@@ -1518,6 +1537,7 @@
             <span class="sfx tilt-left" style="font-size:2rem; color:var(--accent);">COMPROMISED!</span>
           </div>
           <div class="speech-bubble no-tail" style="max-width:100%;">
+            <span class="speaker">DUDE</span>
             <span class="italic">"The whole thing takes about eight seconds. Less time than it took me to heat up this coffee. Which, for the record, is still lukewarm. Just like our endpoint detection."</span>
           </div>
         </div>
@@ -1562,6 +1582,7 @@
       <div class="panel flex-center flex-col" style="text-align:center;">
         <div style="font-size:3rem; margin-bottom:0.5rem;">&#128105;&#8205;&#128188;</div>
         <div class="speech-bubble no-tail" style="max-width:100%;">
+          <span class="speaker">JANET</span>
           Hmm, I need to pull up the Q3 invoices for the audit. This verification thing is new but I guess that's just how things work now...
         </div>
         <div class="body-text italic" style="color:var(--accent); margin-top:0.5rem; font-weight:700;">
@@ -1582,21 +1603,25 @@
       <div class="panel" style="display:flex; flex-direction:column; justify-content:center;">
         <div class="narrator">Mr. Rogers Mode: ACTIVATED</div>
         <div class="speech-bubble" style="max-width:100%; margin-top:0.5rem;">
+          <span class="speaker">DUDE (Mr. Rogers mode)</span>
           <span class="bold">Hey Janet, hold on one second</span> &mdash; can I take a look at that with you? I just want to make sure everything's good before you proceed. No rush at all.
         </div>
         <div style="margin-top:1.5rem;">
           <div class="speech-bubble right" style="max-width:100%;">
+            <span class="speaker">JANET</span>
             Oh, Duke! Sure. It's just asking me to verify for the invoice portal. Is that... not normal?
           </div>
         </div>
       </div>
       <div class="panel">
         <div class="speech-bubble" style="max-width:100%;">
+          <span class="speaker">DUDE (Mr. Rogers mode)</span>
           <span class="bold">I'm really glad you stopped to think about that.</span> That right there? That instinct to pause and question? That's exactly what keeps us safe.<br><br>
           Now, let me show you what's actually happening here, because this is a really clever trick, and honestly, a lot of smart people have fallen for it.
         </div>
         <div style="margin-top:2rem;">
           <div class="speech-bubble no-tail" style="max-width:100%; font-style:italic; background:var(--caption);">
+            <span class="speaker">DUDE (Mr. Rogers mode)</span>
             No legitimate verification process will ever &mdash; <span class="bold">ever</span> &mdash; ask you to open a Run dialog. That is simply not a thing that real software does. It would be like a bank asking you to hotwire your own car to verify your identity.
           </div>
         </div>
@@ -1610,6 +1635,7 @@
           <div class="sfx green" style="font-size:2rem;">CRISIS AVERTED!</div>
           <div class="body-text" style="margin-top:0.5rem;">Janet closes the tab. IT is notified. The invoice portal URL is flagged and blocked. The coffee is reheated.</div>
           <div class="speech-bubble no-tail" style="display:inline-block; max-width:450px; margin-top:0.75rem;">
+            <span class="speaker">DUDE (Mr. Rogers mode)</span>
             You did great, Janet. Seriously. The fact that you hesitated even for a second puts you ahead of about 90% of the internet. Now, let me show you exactly what to look for so this never gets close again.
           </div>
         </div>
@@ -1631,6 +1657,7 @@
 
     <div class="panel-full" style="margin-bottom:1.5rem;">
       <div class="speech-bubble no-tail" style="max-width:100%;">
+        <span class="speaker">DUDE (to reader)</span>
         <span class="bold">Alright, your turn.</span> I'm going to show you four scenarios. For each one, tell me: is this a ClickFix attack, or is it legitimate? Don't worry, I won't judge. Much.
       </div>
     </div>
@@ -1794,6 +1821,7 @@
 
     <div class="panel-full" style="text-align:center;">
       <div class="speech-bubble no-tail" style="display:inline-block; max-width:500px;">
+        <span class="speaker">DUDE</span>
         <span class="bold">The Golden Rule:</span><br>
         Real verification = stays in the browser.<br>
         ClickFix = tries to escape into your operating system.<br>
@@ -1819,6 +1847,7 @@
         <img src="../img/sacred-arts.png" alt="Dude Diligence - Encryption and Compliance" class="char-img portrait rounded" style="width:140px;">
         <div style="flex:1; min-width:250px;">
           <div class="speech-bubble" style="max-width:100%;">
+            <span class="speaker">DUDE (to reader)</span>
             Alright. Here are the rules. They're simple, they're absolute, and they will keep you out of trouble. I call them <span class="bold">The Four Immutable Laws of Not Getting ClickFixed</span>. I've been meditating on these since 2024. They haven't changed. They won't change.
           </div>
         </div>
@@ -1906,6 +1935,7 @@
 
     <div class="panel-full" style="margin-bottom:1.5rem;">
       <div class="speech-bubble no-tail" style="max-width:100%;">
+        <span class="speaker">DUDE (to reader)</span>
         <span class="bold">Eight questions. Multiple choice.</span> I believe in you. Probably. Let's see what you've retained from my incredibly engaging presentation. Minimum passing score: 6 out of 8. That's 75%. I could have made it 100%, but I'm a generous compliance officer.
       </div>
     </div>
@@ -2080,6 +2110,7 @@
     <div class="panel-full" style="text-align:center; margin-top:2rem;">
       <img src="../img/dude-portrait.png" alt="Dude Diligence" style="width:120px; height:120px; object-fit:cover; border:3px solid var(--ink); border-radius:50%; margin-bottom:0.75rem;">
       <div class="speech-bubble no-tail" style="display:inline-block; max-width:550px;">
+        <span class="speaker">DUDE (to reader)</span>
         <span class="bold">Hey, you made it.</span> All the way to the end. That actually means something. Most people skim these things and click "complete" as fast as possible. You didn't. Or maybe you did and you're just reading this part. Either way, you're here now, and I'm glad.<br><br>
         Stay skeptical. Stay curious. And remember: if something wants you to press Win+R, the only correct response is to close the tab and call IT.<br><br>
         <span class="italic">See you in Issue #2.</span><br>
