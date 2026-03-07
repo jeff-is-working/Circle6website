@@ -285,8 +285,8 @@
     .thought-bubble {
       background: var(--bubble-bg);
       border: 2.5px solid var(--ink);
-      border-radius: 50% / 40%;
-      padding: 1rem 1.25rem;
+      border-radius: 20px;
+      padding: 1rem 1.5rem;
       position: relative;
       font-family: var(--font-body);
       font-size: 0.9rem;
@@ -295,22 +295,23 @@
       max-width: 80%;
       z-index: 2;
     }
-    .thought-bubble::after,
-    .thought-bubble .cloud-dot-1,
-    .thought-bubble .cloud-dot-2 {
+    .thought-bubble::after {
       content: '';
       position: absolute;
       border-radius: 50%;
       background: var(--bubble-bg);
       border: 2px solid var(--ink);
+      width: 14px; height: 14px;
+      bottom: -16px; left: 30px;
     }
-    .thought-bubble::after {
-      width: 12px; height: 12px;
-      bottom: -14px; left: 30px;
-    }
-    .thought-bubble .cloud-dot-1 {
-      width: 8px; height: 8px;
-      bottom: -22px; left: 22px;
+    .thought-bubble::before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: var(--bubble-bg);
+      border: 2px solid var(--ink);
+      width: 9px; height: 9px;
+      bottom: -28px; left: 22px;
     }
 
     /* ===== Sound Effects ===== */
