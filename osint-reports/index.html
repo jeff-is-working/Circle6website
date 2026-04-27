@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | Circle 6 Systems</title>
-    <meta name="description" content="Purpose-built tools from Circle 6 Systems for security, compliance, and software development. SBOM Manager, SDLC Journal, and the Circle6 Platform.">
-    <meta property="og:title" content="Products | Circle 6 Systems">
-    <meta property="og:description" content="Purpose-built tools for security, compliance, and software development.">
+    <title>Intelligence Reports | Circle 6 Systems</title>
+    <meta name="description" content="Open-source intelligence reports and rapid event briefings from Circle 6 Systems. Timely, calibrated analysis for security-conscious organizations.">
+    <meta property="og:title" content="Intelligence Reports | Circle 6 Systems">
+    <meta property="og:description" content="Open-source intelligence reports and rapid event briefings for security-conscious organizations.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://circle6systems.com/products/">
-    <link rel="canonical" href="https://circle6systems.com/products/">
+    <meta property="og:url" content="https://circle6systems.com/osint-reports/">
+    <link rel="canonical" href="https://circle6systems.com/osint-reports/">
 
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none';">
@@ -238,17 +238,17 @@
             margin-right: auto;
         }
 
-        /* ===== Products Grid ===== */
-        .products-section {
-            padding: 2rem 2rem 6rem;
+        /* ===== Reports Grid ===== */
+        .reports-section {
+            padding: 2rem 2rem 4rem;
         }
-        .products-grid {
+        .reports-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
-        .product-card {
+        .report-card {
             background: var(--navy-light);
             border: 1px solid var(--navy-mid);
             border-radius: 12px;
@@ -257,39 +257,52 @@
             display: flex;
             flex-direction: column;
         }
-        .product-card:hover {
+        .report-card:hover {
             border-color: rgba(143, 170, 123, 0.25);
             transform: translateY(-3px);
         }
 
-        .product-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(143, 170, 123, 0.15);
+        .report-badges {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        .product-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--accent);
-            fill: none;
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
         }
 
-        .product-card h2 {
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+        }
+        .badge-type {
+            background: rgba(143, 170, 123, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(143, 170, 123, 0.25);
+        }
+        .badge-demo {
+            background: rgba(183, 149, 11, 0.12);
+            color: #d4a80b;
+            border: 1px solid rgba(183, 149, 11, 0.25);
+        }
+
+        .report-date {
+            font-size: 0.8rem;
+            color: var(--slate);
+            margin-bottom: 0.75rem;
+        }
+
+        .report-card h2 {
             font-family: var(--font-heading);
             font-size: 1.35rem;
             color: var(--white);
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
-        .product-card p {
+        .report-card p {
             font-size: 0.95rem;
             color: var(--slate);
             line-height: 1.7;
@@ -297,7 +310,7 @@
             flex-grow: 1;
         }
 
-        .product-link {
+        .report-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -311,17 +324,114 @@
             transition: all 0.2s;
             align-self: flex-start;
         }
-        .product-link:hover,
-        .product-link:focus {
+        .report-link:hover,
+        .report-link:focus {
             background: var(--accent-dim);
             transform: translateX(2px);
         }
-        .product-link svg {
+        .report-link svg {
             width: 16px;
             height: 16px;
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
+        }
+
+        /* ===== Capability Section ===== */
+        .capability-section {
+            padding: 4rem 2rem 4rem;
+            border-top: 1px solid rgba(143, 170, 123, 0.06);
+        }
+        .capability-inner {
+            max-width: 800px;
+        }
+        .capability-section .section-sub {
+            margin-bottom: 2rem;
+        }
+
+        .deliverable-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .deliverable-list li {
+            background: var(--navy-light);
+            border: 1px solid rgba(143, 170, 123, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--slate-light);
+        }
+
+        .capability-detail {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-bg);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .cta-button:hover,
+        .cta-button:focus {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* ===== Metrics Section ===== */
+        .metrics-section {
+            padding: 4rem 2rem 6rem;
+            border-top: 1px solid rgba(143, 170, 123, 0.06);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .metric-card {
+            background: var(--navy-light);
+            border: 1px solid var(--navy-mid);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .metric-card:hover {
+            border-color: rgba(143, 170, 123, 0.2);
+        }
+        .metric-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--slate);
+            line-height: 1.5;
         }
 
         /* ===== Footer ===== */
@@ -362,7 +472,7 @@
             }
             html { scroll-behavior: auto; }
             .fade-in { opacity: 1; transform: none; transition: none; }
-            .product-card:hover, .product-link:hover { transform: none; }
+            .report-card:hover, .report-link:hover, .cta-button:hover { transform: none; }
         }
 
         /* ===== High Contrast ===== */
@@ -373,13 +483,14 @@
                 --slate-light: #f5f0e8;
                 --accent: #b8d1a8;
             }
-            .product-card, .product-icon { border-width: 2px; }
+            .report-card, .metric-card { border-width: 2px; }
             .nav-links a, footer a { text-decoration: underline; }
         }
 
         /* ===== Responsive ===== */
         @media (max-width: 968px) {
-            .products-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+            .reports-grid { grid-template-columns: repeat(2, 1fr); }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -398,7 +509,13 @@
             .nav-links.open { display: flex; }
             .hamburger { display: flex; }
             .hero { min-height: auto; padding: 8rem 1.5rem 3rem; }
-            .products-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .reports-section, .capability-section, .metrics-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            .reports-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+            .metrics-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .deliverable-list { flex-direction: column; }
         }
     </style>
 </head>
@@ -409,15 +526,15 @@
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="/" class="logo-group" aria-label="Circle 6 Systems homepage">
-                <div class="logo-img" aria-hidden="true"><img src="circle6_logo.png" alt=""></div>
+                <div class="logo-img" aria-hidden="true"><img src="/products/circle6_logo.png" alt=""></div>
                 <div class="logo-text">Circle <span>6</span> Systems</div>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/#about">About</a></li>
                 <li><a href="/#services">Services</a></li>
-                <li><a href="/products/" aria-current="page">Products</a></li>
+                <li><a href="/products/">Products</a></li>
                 <li><a href="/training/">Training</a></li>
-                <li><a href="/osint-reports/">Intelligence</a></li>
+                <li><a href="/osint-reports/" aria-current="page">Intelligence</a></li>
                 <li><a href="/#industries">Industries</a></li>
                 <li><a href="/#approach">Approach</a></li>
                 <li><a href="/#contact">Contact</a></li>
@@ -431,54 +548,30 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero" role="banner" aria-label="Products overview">
+    <section class="hero" role="banner" aria-label="Intelligence reports overview">
         <div class="container hero-content" id="main-content">
-            <p class="section-label">Circle 6 Systems</p>
-            <h1>Our <em>Products</em></h1>
-            <p class="section-sub">Purpose-built tools for organizations that take security, compliance, and software quality seriously. Each product reflects the same standards we bring to our consulting engagements.</p>
+            <p class="section-label">Intelligence Reports</p>
+            <h1>Open-Source <em>Intelligence</em></h1>
+            <p class="section-sub">Rapid, calibrated intelligence briefings for security teams and executive leadership. We transform open-source data into actionable insight within hours of a developing event.</p>
         </div>
     </section>
 
-    <!-- Products Grid -->
-    <main class="products-section" aria-label="Product catalog">
+    <!-- Reports Grid -->
+    <main class="reports-section" aria-label="Published intelligence reports">
         <div class="container">
-            <div class="products-grid">
+            <div class="reports-grid">
 
-                <!-- SBOM Manager -->
-                <article class="product-card fade-in" aria-labelledby="sbom-title">
-                    <div class="product-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                <!-- WHCD 2026 Briefing -->
+                <article class="report-card fade-in" aria-labelledby="whcd-title">
+                    <div class="report-badges">
+                        <span class="badge badge-type">Rapid Event Briefing</span>
+                        <span class="badge badge-demo">Demo</span>
                     </div>
-                    <h2 id="sbom-title">SBOM Manager</h2>
-                    <p>Enterprise license compliance and software supply chain governance. Ingest SBOMs from any SCA tool, automatically classify licenses against your policies, and manage human review workflows with full audit trails.</p>
-                    <a href="/products/sbom-manager.html" class="product-link" aria-label="Learn more about SBOM Manager">
-                        Learn More
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-                    </a>
-                </article>
-
-                <!-- SDLC Journal -->
-                <article class="product-card fade-in" aria-labelledby="sdlc-title">
-                    <div class="product-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
-                    </div>
-                    <h2 id="sdlc-title">SDLC Journal</h2>
-                    <p>Encrypted, privacy-first development journaling. Record successes, delights, learnings, and compliments with AES-256-GCM client-side encryption. Your entries never leave your device unencrypted.</p>
-                    <a href="/products/sdlc-journal.html" class="product-link" aria-label="Learn more about SDLC Journal">
-                        Learn More
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-                    </a>
-                </article>
-
-                <!-- Circle6 Platform -->
-                <article class="product-card fade-in" aria-labelledby="platform-title">
-                    <div class="product-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8l3 3-3 3"/><line x1="13" y1="14" x2="17" y2="14"/></svg>
-                    </div>
-                    <h2 id="platform-title">Circle6 Platform</h2>
-                    <p>AI-powered security and compliance assessment platform. 86 engagement types across 11 practices, with automated methodology, human review gates, and direct integration with GitHub and Jira for findings tracking.</p>
-                    <a href="/products/platform.html" class="product-link" aria-label="Learn more about Circle6 Platform">
-                        Learn More
+                    <p class="report-date">April 26, 2026</p>
+                    <h2 id="whcd-title">2026 White House Correspondents' Dinner Shooting</h2>
+                    <p>Multi-perspective rapid intelligence briefing covering the shooting incident at the 2026 White House Correspondents' Dinner. Includes executive overview, threat actor profile, security analysis, counter-narrative report, and political impact assessment.</p>
+                    <a href="/osint-reports/whcd-2026-04-25/" class="report-link" aria-label="View the WHCD 2026 briefing">
+                        View Briefing
                         <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                     </a>
                 </article>
@@ -486,6 +579,62 @@
             </div>
         </div>
     </main>
+
+    <!-- Capability Overview -->
+    <section class="capability-section fade-in" aria-label="Intelligence capability overview">
+        <div class="container">
+            <div class="capability-inner">
+                <p class="section-label">Capability</p>
+                <h2 class="section-heading">Rapid Intelligence Briefings</h2>
+                <div class="divider"></div>
+                <p class="section-sub">Circle 6 Systems produces structured OSINT briefing packages in response to breaking security events. Each package synthesizes open-source reporting, social media analysis, and historical context into perspective-specific reports designed for distinct audiences and decision-making needs.</p>
+
+                <h3 style="font-family: var(--font-heading); color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;">Deliverable Types</h3>
+                <ul class="deliverable-list">
+                    <li>Executive Overview</li>
+                    <li>Threat Actor Profile</li>
+                    <li>Security Analysis</li>
+                    <li>Counter-Narrative Report</li>
+                    <li>Political Impact Assessment</li>
+                    <li>Predictive Assessment</li>
+                </ul>
+
+                <p class="capability-detail">Every briefing includes calibrated predictive assessments using a structured probability framework. Predictions are tagged with confidence levels and revisited as events develop, ensuring accountability and analytic rigor. Sources are cited and cross-referenced against at least 25 independent open sources per briefing.</p>
+
+                <a href="/osint-reports/services.html" class="cta-button">
+                    View Intelligence Services
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="metrics-section fade-in" aria-label="Intelligence capability metrics">
+        <div class="container">
+            <p class="section-label" style="text-align: center;">By the Numbers</p>
+            <h2 class="section-heading" style="text-align: center;">Intelligence at Speed</h2>
+            <div class="divider divider-centered"></div>
+            <div class="metrics-grid">
+                <div class="metric-card fade-in">
+                    <div class="metric-value">&lt; 48h</div>
+                    <div class="metric-label">Rapid turnaround from event to finished briefing</div>
+                </div>
+                <div class="metric-card fade-in">
+                    <div class="metric-value">6</div>
+                    <div class="metric-label">Perspective-specific reports per briefing package</div>
+                </div>
+                <div class="metric-card fade-in">
+                    <div class="metric-value">25+</div>
+                    <div class="metric-label">Minimum open sources consulted per briefing</div>
+                </div>
+                <div class="metric-card fade-in">
+                    <div class="metric-value">3&ndash;5</div>
+                    <div class="metric-label">Calibrated predictive assessments per report</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer role="contentinfo">
