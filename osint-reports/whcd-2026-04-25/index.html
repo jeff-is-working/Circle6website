@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHCD Shooting Briefing Package | Circle 6 Systems Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--c6s-border);
+      margin-bottom: 2.5rem;
+    }
+    .hero h1 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 0.25rem; }
+    .hero .event-date {
+      font-size: 1.1rem;
+      color: var(--c6s-accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero .event-summary {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--c6s-text-dim);
+      font-size: 0.95rem;
+    }
+    .status-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .status-item {
+      text-align: center;
+    }
+    .status-item .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .status-item .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--c6s-text-dim);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--c6s-text-dim);
+      margin-bottom: 1rem;
+    }
+    .prediction-note {
+      background: var(--c6s-panel);
+      border: 1px solid var(--c6s-border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--c6s-text-dim);
+    }
+  </style>
+</head>
+<body>
+  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="logo-text">Circle <span>6</span> Systems</a>
+      <ul class="nav-links">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/products/">Products</a></li>
+        <li><a href="/training/">Training</a></li>
+        <li><a href="/osint-reports/" class="active">Intelligence</a></li>
+        <li><a href="/#industries">Industries</a></li>
+        <li><a href="/#approach">Approach</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="header-bar">
+    <div class="brand">
+      <span class="logo">Circle 6 Systems &middot; Intelligence</span>
+      <span class="classification">Unclassified // Demo</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/osint-reports/">Intelligence Reports</a> &rsaquo; <a href="index.html">WHCD Shooting</a>
+    </nav>
+
+    <div class="hero">
+      <h1>2026 White House Correspondents' Dinner Shooting</h1>
+      <div class="event-date">Washington Hilton &middot; April 25, 2026 &middot; 20:34 EDT</div>
+      <p class="event-summary">
+        Comprehensive open-source intelligence briefing package on the attempted assassination at the annual WHCD.
+        Lone actor Cole Tomas Allen (31, Torrance CA) breached the outer security perimeter armed with a shotgun, handgun, and multiple knives.
+        One Secret Service agent struck (vest, non-fatal). Suspect in federal custody. No fatalities.
+      </p>
+      <div class="status-bar">
+        <div class="status-item">
+          <div class="value" style="color: var(--c6s-amber);">DEVELOPING</div>
+          <div class="label">Incident Status</div>
+        </div>
+        <div class="status-item">
+          <div class="value" style="color: var(--c6s-green);">0</div>
+          <div class="label">Fatalities</div>
+        </div>
+        <div class="status-item">
+          <div class="value" style="color: var(--c6s-amber);">1</div>
+          <div class="label">Injuries (non-fatal)</div>
+        </div>
+        <div class="status-item">
+          <div class="value" style="color: var(--c6s-accent);">1</div>
+          <div class="label">Suspect in Custody</div>
+        </div>
+        <div class="status-item">
+          <div class="value" style="color: var(--c6s-text-dim);">25</div>
+          <div class="label">Open Sources Cited</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Briefing Package Contents</div>
+
+    <div class="card-grid">
+      <a href="executive-overview.html" class="card">
+        <div class="card-icon">&#9733;</div>
+        <h3>Executive Overview</h3>
+        <p>One-page leadership brief. Key facts, threat assessment, and immediate implications. Designed for C-suite and board-level consumption.</p>
+        <div class="card-badge"><span class="badge badge-blue">2 min read</span></div>
+      </a>
+
+      <a href="full-briefing.html" class="card">
+        <div class="card-icon">&#9881;</div>
+        <h3>Full OSINT Briefing</h3>
+        <p>Complete analytical product: timeline, subject profile, manifesto analysis, organizational links, security analysis, political impact, and key assessments.</p>
+        <div class="card-badge"><span class="badge badge-amber">15 min read</span></div>
+      </a>
+
+      <a href="threat-actor-profile.html" class="card">
+        <div class="card-icon">&#9760;</div>
+        <h3>Threat Actor Profile</h3>
+        <p>Deep-dive intelligence product on Cole Tomas Allen. Biographical data, radicalization indicators, operational tradecraft, and predictive analysis.</p>
+        <div class="card-badge"><span class="badge badge-red">Intel Analyst</span></div>
+      </a>
+
+      <a href="security-analysis.html" class="card">
+        <div class="card-icon">&#9888;</div>
+        <h3>Protective Security Report</h3>
+        <p>Security gap analysis, venue assessment, perimeter failures, and actionable recommendations for future high-profile event protection.</p>
+        <div class="card-badge"><span class="badge badge-amber">Security Ops</span></div>
+      </a>
+
+      <a href="counter-narrative.html" class="card">
+        <div class="card-icon">&#9783;</div>
+        <h3>Counter-Narrative &amp; Disinfo Report</h3>
+        <p>Catalog of conspiracy theories and misinformation campaigns. Propagation analysis, debunking evidence, and recommended counter-messaging strategies.</p>
+        <div class="card-badge"><span class="badge badge-green">Communications</span></div>
+      </a>
+
+      <a href="political-impact.html" class="card">
+        <div class="card-icon">&#9878;</div>
+        <h3>Political &amp; Policy Impact</h3>
+        <p>Domestic political reactions, legislative implications, international diplomatic response, and projected policy trajectories.</p>
+        <div class="card-badge"><span class="badge badge-blue">Policy Advisor</span></div>
+      </a>
+    </div>
+
+    <section style="margin-top: 2.5rem;">
+      <h2>Predictive Assessments</h2>
+      <p style="color: var(--c6s-text-dim); font-size: 0.9rem; margin-bottom: 1.25rem;">
+        Analytical projections based on evidence patterns &mdash; likely facts not yet surfaced in reporting.
+      </p>
+
+      <div class="prediction-note">
+        Predictions are time-stamped at publication and tracked for calibration. Resolution status is updated as confirming or disconfirming evidence emerges.
+      </div>
+
+      <div class="panel highlight">
+        <div class="panel-title">Prediction 1: Prior Reconnaissance</div>
+        <p>Allen conducted at least one prior reconnaissance trip to Washington D.C. and/or the Washington Hilton. His manifesto's specific security critique and venue-hotel booking indicate physical familiarity with the site.</p>
+        <div class="confidence-bar">
+          <span style="font-size: 0.75rem; color: var(--c6s-text-dim);">Confidence</span>
+          <div class="bar"><div class="fill" style="width: 85%; background: var(--c6s-accent);"></div></div>
+          <span class="pct" style="color: var(--c6s-accent);">85%</span>
+        </div>
+        <div class="prediction-timestamp">Predicted: April 26, 2026 12:00 EDT <span class="prediction-status">Pending Confirmation</span></div>
+      </div>
+
+      <div class="panel highlight">
+        <div class="panel-title">Prediction 2: Individual Official Dossiers</div>
+        <p>Supplementary materials recovered from Allen's Torrance home contain individualized research files on specific administration officials &mdash; the Patel exclusion and hierarchical targeting require differentiated analysis.</p>
+        <div class="confidence-bar">
+          <span style="font-size: 0.75rem; color: var(--c6s-text-dim);">Confidence</span>
+          <div class="bar"><div class="fill" style="width: 75%; background: var(--c6s-accent);"></div></div>
+          <span class="pct" style="color: var(--c6s-accent);">75%</span>
+        </div>
+        <div class="prediction-timestamp">Predicted: April 26, 2026 12:00 EDT <span class="prediction-status">Pending Confirmation</span></div>
+      </div>
+
+      <div class="panel highlight">
+        <div class="panel-title">Prediction 3: Professional Decline as Radicalization Accelerant</div>
+        <p>The trajectory from Caltech engineering degree to chronic underemployment will emerge as a central radicalization factor, likely accompanied by failed applications to defense/aerospace/tech employers.</p>
+        <div class="confidence-bar">
+          <span style="font-size: 0.75rem; color: var(--c6s-text-dim);">Confidence</span>
+          <div class="bar"><div class="fill" style="width: 90%; background: var(--c6s-accent);"></div></div>
+          <span class="pct" style="color: var(--c6s-accent);">90%</span>
+        </div>
+        <div class="prediction-timestamp">Predicted: April 26, 2026 12:00 EDT <span class="prediction-status">Pending Confirmation</span></div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <p>&copy; 2026 Circle 6 Systems. All rights reserved. | contact@circle6systems.com</p>
+      <p style="margin-top: 0.25rem;">Compiled from open sources &middot; Current as of 2026-04-26 1200 EDT &middot; Subject to revision</p>
+      <p style="margin-top: 0.25rem;">No classified or privileged sources were used in the preparation of this briefing package.</p>
+      <p style="margin-top: 0.5rem;"><a href="/osint-reports/">View all Intelligence Reports</a></p>
+    </div>
+  </div>
+</body>
+</html>
